@@ -1,0 +1,156 @@
+---
+title: "Vector types"
+format:
+  html:
+    embed-resources: true
+    toc: true
+execute:
+  warning: false
+editor_options: 
+  chunk_output_type: console
+editor: visual
+---
+
+```{r}
+library(tidyverse)
+library(gapminder)
+
+```
+
+# Part 1: (Atomic) Vectors
+
+Atomic vectors, of which there are six types: logical, integer, double, character, complex, and raw.
+
+Integer and double vectors are collectively known as numeric vectors.
+
+-   lgl: logical
+-   int: integer
+-   dbl: double
+-   chr: character
+
+```{r}
+
+glimpse(gapminder)
+
+```
+
+## Types of atomic vectors
+
+```{r}
+
+vector_lgl <- c(TRUE, TRUE, FALSE)
+typeof(vector_lgl)
+sum(vector_lgl)
+as.numeric(vector_lgl)
+
+vector_int <- c(1L, 3L, 6L)
+typeof(vector_int)
+
+vector_dbl <- c(1293, 5.1, 90.5)
+typeof(vector_dbl)
+
+vector_chr <- c("large", "small", "medium")
+typeof(vector_chr)
+
+```
+
+## Logical vectors
+
+```{r}
+
+vector_dbl > 150
+
+"large" == vector_chr
+
+str_detect(vector_chr, "lar")
+
+```
+
+## Explicit vector coercion & augmented vectors
+
+Vectors can also contain arbitrary additional metadata in the form of attributes. These attributes are used to create augmented vectors which build on additional behavior. For example, factors are built on top of integer vectors.
+
+```{r}
+
+vector_fct <- factor(vector_chr, levels = c("small", "medium", "large"))
+
+typeof(vector_fct)
+attributes(vector_fct)
+as.integer(vector_fct)
+```
+
+## Tibbles / Dataframes
+
+Tibbles / dataframes have vectors as columns. Each vector has the same length. Each vector can be thought of as a column and the length of each vector is the number of rows.
+
+```{r}
+tib_data <- tibble(
+  vector_lgl,
+  vector_int,
+  vector_dbl,
+  vector_chr,
+  vector_fct,
+  date = Sys.Date()
+)
+```
+
+## Accessing a vector from a dataframe
+
+```{r}
+tib_data |> 
+  pull(vector_fct)
+
+tib_data$vector_fct
+
+tib_data[5]
+
+tib_data[[5]]
+
+```
+
+# Part 2: Programming with R
+
+## For loops
+
+Iterate code for each element in a vector.
+
+```{r}
+
+size <- tib_data$vector_fct
+
+for (s in size) {
+  msg <- paste(
+    "------", s, "------"
+  )
+  print(msg) 
+}
+```
+
+## If statement
+
+```{r}
+pet <- c("bat", "cat", "dog", "bird", "horse")
+
+for(p in pet) {
+  if(p == "dog") {
+    msg <- paste("A", p, "is the best!")
+  } else {
+    msg <- paste("A", p, "is okay I guess.")
+  }
+  print(msg) 
+}
+```
+
+```{r}
+
+sounds <- c(NA, "meow", "woof", "chirp", "neigh")
+
+for (i in seq_along(pet)) {
+  if (pet[i] == "dog") {
+    message <- paste("The", pet[i], "goes", sounds[i])
+  } else {
+    message <- paste("The", pet[i], "says", sounds[i])
+  }
+  print(message)
+}
+```
