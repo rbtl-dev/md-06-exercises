@@ -77,16 +77,34 @@ Tibbles / dataframes have vectors as columns. Each vector has the same length. E
 Iterate code for each element in a vector.
 
 ```{r}
-pet <- c("bat", "cat", "dog", "bird", "horse")
+
 
 ```
 
 ## If statement
 
 ```{r}
+pet <- c("bat", "cat", "dog", "bird", "horse")
 
+for(p in pet) {
+  if(p == "dog") {
+    msg <- paste("A", p, "is the best!")
+  } else {
+    msg <- paste("A", p, "is okay I guess.")
+  }
+  print(msg) 
+}
 ```
 
 ```{r}
 sounds <- c(NA, "meow", "woof", "chirp", "neigh")
+
+for (i in seq_along(pet)) {
+  if (pet[i] == "dog") {
+    message <- paste("The", pet[i], "goes", sounds[i])
+  } else {
+    message <- paste("The", pet[i], "says", sounds[i])
+  }
+  print(message)
+}
 ```
