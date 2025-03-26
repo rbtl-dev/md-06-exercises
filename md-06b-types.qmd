@@ -95,16 +95,3 @@ for(p in pet) {
   print(msg) 
 }
 ```
-
-```{r}
-sounds <- c(NA, "meow", "woof", "chirp", "neigh")
-
-for (i in seq_along(pet)) {
-  if (pet[i] == "dog") {
-    message <- paste("The", pet[i], "goes", sounds[i])
-  } else {
-    message <- paste("The", pet[i], "says", sounds[i])
-  }
-  print(message)
-}
-```

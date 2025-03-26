@@ -97,32 +97,7 @@ runif(n = 1000, min = 1, max = 100) |> hist()
 rnorm(n = 1000, mean = 500, sd = 150) |> hist()
 ```
 
-## Task 6: Logical vectors
-
-1.  Create a numeric vector using `rnorm(n = 1000, mean = 50, sd = 5)` and use the assignment operator to store it in an object called `norm100`. Run the code.
-
-2.  Write:
-
--   `mean(norm100)` and run the code. What does the code do?
--   `norm100 >= 50` and run the code. What does the code do?
--   `sum(norm100 >= 50)` and run the code. What does the code do?
--   `mean(norm100 >= 50)` and run the code. What does the code do?
-
-```{r}
-
-norm_dist <- rnorm(n = 1000, mean = 50, sd = 5) 
-
-mean(norm_dist)
-
-norm_dist >= 50
-
-sum(norm_dist >= 50)
-
-mean(norm_dist >= 50)
-
-```
-
-## Task 7 (stretch goal)
+## Task 6 (stretch goal)
 
 In this task, we will use the `flights` data object of the `nycflights13` package. The `flights` data object contains information about all flights that departed from NYC (e.g., EWR, JFK and LGA) in 2013. The data object contains 336,776 rows and 19 columns.
 

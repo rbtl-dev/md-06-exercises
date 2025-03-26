@@ -78,22 +78,7 @@ library(nycflights13)
 
 ```
 
-## Task 6: Logical vectors
-
-1.  Create a numeric vector using `rnorm(n = 1000, mean = 50, sd = 5)` and use the assignment operator `<-` to store the result in an object called `norm_dist`. Run the code.
-
-2.  Write:
-
--   `mean(norm_dist)` and run the code. What does the code do?
--   `norm_dist >= 50` and run the code. What does the code do?
--   `sum(norm_dist >= 50)` and run the code. What does the code do?
--   `mean(norm_dist >= 50)` and run the code. What does the code do?
-
-```{r}
-
-```
-
-## Task 7 (stretch goal)
+## Task 6 (stretch goal)
 
 In this task, we will use the `flights` data object of the `nycflights13` package. The `flights` data object contains information about all flights that departed from NYC (e.g., EWR, JFK and LGA) in 2013. The data object contains 336,776 rows and 19 columns.
 
